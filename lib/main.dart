@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './transaction_card.dart';
 
 void main() => runApp(MyApp());
 
@@ -35,13 +36,8 @@ class MyApp extends StatelessWidget {
         ),
         body: Column(
           children: [
-            Card(
-              child: Container(
-                width: double.infinity,
-                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-                child: Text("First Card"),
-              ),
-            )
+            TranscationCard(transactions[0]),
+            TranscationCard(transactions[1]),
           ],
         ),
       ),
