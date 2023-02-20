@@ -26,7 +26,7 @@ class TranscationCard extends StatelessWidget {
               children: [
                 Text(
                   "${transaction['title']}",
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                   ),
