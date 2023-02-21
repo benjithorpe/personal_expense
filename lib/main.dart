@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './transaction.dart';
+import 'package:intl/intl.dart';
 // import './transaction_card.dart';
 
 void main() => runApp(MyApp());
@@ -48,10 +49,11 @@ class MyApp extends StatelessWidget {
                       width: double.infinity,
                       padding: const EdgeInsets.all(10),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Container(
                             padding: const EdgeInsets.all(10),
+                            margin: const EdgeInsets.only(right: 10),
                             decoration: BoxDecoration(
                               border: Border.all(color: Colors.blue),
                             ),
@@ -65,7 +67,7 @@ class MyApp extends StatelessWidget {
                             ),
                           ),
                           Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 transaction.title,
@@ -75,7 +77,8 @@ class MyApp extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                transaction.date.toString(),
+                                DateFormat("dd MMMM, yyyy")
+                                    .format(transaction.date),
                                 style: TextStyle(
                                   color: Colors.grey.shade500,
                                   fontSize: 12,
