@@ -14,7 +14,7 @@ class TranscationCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "${transaction['amount']}",
+              "transaction.amount.toString()",
               style: const TextStyle(
                 color: Colors.blue,
                 fontSize: 25,
