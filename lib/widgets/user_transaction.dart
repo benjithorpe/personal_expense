@@ -25,12 +25,6 @@ class _UserTransactionState extends State<UserTransaction> {
       amount: 16.53,
       date: DateTime.now(),
     ),
-    Transaction(
-      id: 't3',
-      title: 'Soccer Boots',
-      amount: 50.99,
-      date: DateTime.now(),
-    ),
   ];
 
   void _addNewTransaction(String title, double price) {
@@ -46,11 +40,13 @@ class _UserTransactionState extends State<UserTransaction> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        NewTransaction(_addNewTransaction),
-        TransactionList(transactions),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          NewTransaction(_addNewTransaction),
+          TransactionList(transactions),
+        ],
+      ),
     );
   }
 }
