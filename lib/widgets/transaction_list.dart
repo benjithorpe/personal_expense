@@ -13,7 +13,7 @@ class TransactionList extends StatelessWidget {
     return ListView.builder(
       shrinkWrap: true,
       itemCount: transactions.length,
-      itemBuilder: (BuildContext context, int index) {
+      itemBuilder: (context, index) {
         return Card(
           child: Container(
             width: double.infinity,
