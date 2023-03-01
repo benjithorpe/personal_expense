@@ -3,20 +3,25 @@ import './models/transaction.dart';
 import './widgets/transaction_list.dart';
 import './widgets/new_transaction.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter App',
+      title: 'Personal Expense',
+      theme: ThemeData(primarySwatch: Colors.teal),
       debugShowCheckedModeBanner: false,
-      home: MyHomepage(),
+      home: const MyHomepage(),
     );
   }
 }
 
 class MyHomepage extends StatefulWidget {
+  const MyHomepage({super.key});
+
   @override
   _MyHomepageState createState() => _MyHomepageState();
 }
@@ -55,29 +60,22 @@ class _MyHomepageState extends State<MyHomepage> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Personal Expense',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Personal Expense'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.add),
+            onPressed: () => _displayBottomSheet(context),
+          )
+        ],
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Personal Expense'),
-          actions: [
-            IconButton(
-              icon: const Icon(Icons.add),
-              onPressed: () => _displayBottomSheet(context),
-            )
-          ],
-        ),
-        body: TransactionList(transactions),
-        floatingActionButton: FloatingActionButton(
-          child: const Icon(Icons.add),
-          onPressed: () => _displayBottomSheet(context),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      body: TransactionList(transactions),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        onPressed: () => _displayBottomSheet(context),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
